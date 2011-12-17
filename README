@@ -6,7 +6,22 @@ EXAMPLES
 the following syntax will create a tc object with your tc markup in "Ingredient" form;
 
 tc = TableCloth.new "1 cup of sugar"
+puts tc.ingredients.first
 
-check the unit tests to see other examples. eventually you'll be able to do this;
+All of the following will parse to an equivalent object;
+
+"2lbs Potatoes"
+"2 lbs Potatoes"
+"2 lb Potatoes"
+"2lb Potatoes"
+
+The following will also be parsed;
+
+"1 tablespoon of sugar"
+"1 bouquet garni"
+"a cup of sugar"
+"salt to taste"
+
+Eventually you'll be able to do this;
 
 tc.to_html
