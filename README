@@ -1,0 +1,12 @@
+This is an ingredients markdown for converting pure text to arrays of Ingredient objects. 
+
+EXAMPLES
+==========
+
+the following syntax will create a tc object with your tc markup in "Ingredient" form;
+
+tc = TableCloth.new "1 cup of sugar"
+
+check the unit tests to see other examples. eventually you'll be able to do this;
+
+tc.to_html
