@@ -16,8 +16,6 @@ class TableCloth
     
   end
   
-  private
-  
   def parse_single str, units_hash
 
     str = presub str
