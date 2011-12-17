@@ -6,7 +6,6 @@ EXAMPLES
 the following syntax will create a tc object with your tc markup in "Ingredient" form;
 
 tc = TableCloth.new "1 cup of sugar"
-puts tc.ingredients.first
 
 All of the following will parse to an equivalent object;
 
