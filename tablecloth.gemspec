@@ -1,5 +1,5 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "mygem/version"
+require "tablecloth/version"
 
 spec = Gem::Specification.new do |s|
 
