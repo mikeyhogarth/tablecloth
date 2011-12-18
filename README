@@ -3,9 +3,17 @@ This is an ingredients markdown for converting pure text to arrays of Ingredient
 EXAMPLES
 ==========
 
-the following syntax will create a tc object with your tc markup in "Ingredient" form;
+Example usage;
 
-tc = TableCloth.new "1 cup of sugar"
+1.9.2> tc = TableCloth.new("1 cup of sugar")
+ => #<TableCloth:0x87a09c4 @ingredients=[#<Ingredient:0x879d454 @qty="1", @unit=:cups, @item="sugar">]> 
+
+1.9.2 > tc.ingredients.first.quantity
+ => "1" 
+1.9.2 > tc.ingredients.first.unit
+ => :cups 
+1.9.2 > tc.ingredients.first.item
+ => "sugar" 
 
 All of the following will parse to an equivalent object;
 
@@ -24,3 +32,4 @@ The following will also be parsed;
 Eventually you'll be able to do this;
 
 tc.to_html
+=> <ul><li>2 lbs Potatoes</li></ul>

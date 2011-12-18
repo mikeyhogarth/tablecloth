@@ -70,9 +70,11 @@
 
   <ul class="link-list">
     
-    <li><a href="#method-i-test_awkward_syntax">#test_awkward_syntax</a>
+    <li><a href="#method-i-test_awkward_syntax_parsing">#test_awkward_syntax_parsing</a>
     
-    <li><a href="#method-i-test_full_qtyunititem_syntax">#test_full_qtyunititem_syntax</a>
+    <li><a href="#method-i-test_basic_parsing">#test_basic_parsing</a>
+    
+    <li><a href="#method-i-test_qty_fractions">#test_qty_fractions</a>
     
   </ul>
 </nav>
@@ -87,6 +89,8 @@
   
     <li class="file"><a href="./README.html">README</a>
   
+    <li class="file"><a href="./README~.html">README~</a>
+  
   </ul>
 </nav>
 
@@ -96,6 +100,8 @@
   <ul class="link-list">
   
     <li><a href="./Ingredient.html">Ingredient</a>
+  
+    <li><a href="./Object.html">Object</a>
   
     <li><a href="./TableCloth.html">TableCloth</a>
   
@@ -134,10 +140,10 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-test_awkward_syntax" class="method-detail ">
+      <div id="method-i-test_awkward_syntax_parsing" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">test_awkward_syntax</span><span
+          <span class="method-name">test_awkward_syntax_parsing</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -149,12 +155,13 @@
           
 
           
-          <div class="method-source-code" id="test_awkward_syntax-source">
-            <pre><span class="ruby-comment"># File test/test_examples.rb, line 24</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_awkward_syntax</span>
+          <div class="method-source-code" id="test_awkward_syntax_parsing-source">
+            <pre><span class="ruby-comment"># File test/test_examples.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_awkward_syntax_parsing</span>
   <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;1 tablespoon of sugar&quot;</span>)
   <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:tablespoon</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">test_ingredient</span>.<span class="ruby-identifier">is_free_text?</span>
 
   <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;1 bouquet garni&quot;</span>)
   <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:na</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;bouquet garni&quot;</span>
@@ -163,28 +170,32 @@
   <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;a cup of sugar&quot;</span>)
   <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cups</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_free_text?</span>
 
   <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;salt to taste&quot;</span>)
   <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;salt to taste&quot;</span>, <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:na</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:na</span>
-  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">test_ingredient</span>.<span class="ruby-identifier">is_free_text?</span>, <span class="ruby-string">&quot;test comparison&quot;</span>
-  
-  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>, <span class="ruby-string">&quot;free text test&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">test_ingredient</span>.<span class="ruby-identifier">is_free_text?</span>, <span class="ruby-string">&quot;test comparison&quot;</span>    
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
+
+  <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;cup of sugar&quot;</span>)
+  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>, <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cups</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
   
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- test_awkward_syntax-source -->
+          </div><!-- test_awkward_syntax_parsing-source -->
           
         </div>
 
         
 
         
-      </div><!-- test_awkward_syntax-method -->
+      </div><!-- test_awkward_syntax_parsing-method -->
 
     
-      <div id="method-i-test_full_qtyunititem_syntax" class="method-detail ">
+      <div id="method-i-test_basic_parsing" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">test_full_qtyunititem_syntax</span><span
+          <span class="method-name">test_basic_parsing</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -196,33 +207,64 @@
           
 
           
-          <div class="method-source-code" id="test_full_qtyunititem_syntax-source">
+          <div class="method-source-code" id="test_basic_parsing-source">
             <pre><span class="ruby-comment"># File test/test_examples.rb, line 6</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_full_qtyunititem_syntax</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_basic_parsing</span>
 
   <span class="ruby-identifier">ex1</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;2lbs Potatoes&quot;</span>)
   <span class="ruby-identifier">ex2</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;2 lbs Potatoes&quot;</span>)
   <span class="ruby-identifier">ex3</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;2 lb Potatoes&quot;</span>)
   <span class="ruby-identifier">ex4</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;2lb Potatoes&quot;</span>)
 
-  <span class="ruby-identifier">ex1_first_ingredient</span> = <span class="ruby-identifier">ex1</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>
-
-  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;2&quot;</span>, <span class="ruby-identifier">ex1_first_ingredient</span>.<span class="ruby-identifier">qty</span>
-  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:lbs</span>, <span class="ruby-identifier">ex1_first_ingredient</span>.<span class="ruby-identifier">unit</span>
-  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Potatoes&quot;</span>, <span class="ruby-identifier">ex1_first_ingredient</span>.<span class="ruby-identifier">item</span>
-
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">ex1</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">ex2</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-string">&quot;First Comparison&quot;</span>
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">ex1</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">ex3</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-string">&quot;Second Comparison&quot;</span>
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">ex1</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">ex4</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-string">&quot;Third Comparison&quot;</span>    
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- test_full_qtyunititem_syntax-source -->
+          </div><!-- test_basic_parsing-source -->
           
         </div>
 
         
 
         
-      </div><!-- test_full_qtyunititem_syntax-method -->
+      </div><!-- test_basic_parsing-method -->
+
+    
+      <div id="method-i-test_qty_fractions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_qty_fractions</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_qty_fractions-source">
+            <pre><span class="ruby-comment"># File test/test_examples.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_qty_fractions</span>
+  <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;1/2 a cup of sugar&quot;</span>)
+  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1/2&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cups</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">test_ingredient</span>.<span class="ruby-identifier">quantity</span>.<span class="ruby-identifier">fraction?</span>
+
+  <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;1/4 oz sugar&quot;</span>)
+  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1/4&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ounces</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_qty_fractions-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_qty_fractions-method -->
 
     
     </section><!-- public-instance-method-details -->

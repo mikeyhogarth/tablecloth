@@ -1,5 +1,6 @@
 require "yaml"
-
+require "ingredient"
+ 
 class TableCloth
  
   attr_reader :ingredients
@@ -15,6 +16,13 @@ class TableCloth
     end    
     
   end
+
+  def to_html
+    #TODO
+    raise NotImplementedError
+  end
+
+  private
   
   def parse_single str, units_hash
 
@@ -29,7 +37,10 @@ class TableCloth
   end
 
   def get_qty str
-    qty = str.slice(/\d+/)
+
+    #check for fractions first, then single units
+    qty = str.slice(/\d+\/\d+/) || str.slice(/\d+/)
+
     if qty == nil
       :na
     else
@@ -58,29 +69,10 @@ class TableCloth
 
   def presub str
     #TODO: gotta be a better way of doing things than this!
-    str.gsub!(/of/, "")
-    str.gsub!(/^(a )/, "1")
+    str.gsub!(/of/, "") #deal with "1 cup of sugar"
+    str.gsub!(/^(a )/, "1") #turn "a cup of sugar" into "1 cup of sugar"
+    str.gsub!(/ a /,"") #deal with "1/2 a cup of sugar"
     str
   end
 
-end
-
-class Ingredient
-  attr_accessor :qty, :unit, :item
-
-  def initialize(params)
-    @qty = params[:qty]
-    @unit = params[:unit]
-    @item = params[:item]
-  end
-
-  def ==(other_ingredient)
-      @qty == other_ingredient.qty &&
-      @unit == other_ingredient.unit &&
-      @item == other_ingredient.item
-  end
-
-  def is_free_text?
-    @qty == :na && @unit == :na
-  end
 end

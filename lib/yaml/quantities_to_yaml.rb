@@ -17,7 +17,9 @@ quantities = {
   "pinch" => :pinch,
   "a pinch" => :pinch,
   "cup" => :cups,
-  "cups" => :cups
+  "cups" => :cups,
+  "ounces" => :ounces,
+  "oz" => :ounces
 }
 
 File.open("qty.yaml", "w") do |file|
