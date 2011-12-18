@@ -1,8 +1,6 @@
-#require "yaml"
-#require "ingredient"
- 
+#Base class
 class TableCloth
- 
+  
   attr_reader :ingredients
 
   def initialize val
@@ -17,6 +15,7 @@ class TableCloth
     
   end
 
+  #NOT YET IMPLEMENTED: will return entire ingredient list an html ul, can be overriden to include html attributes
   def to_html
     #TODO
     raise NotImplementedError
@@ -24,6 +23,7 @@ class TableCloth
 
   private
   
+  #parse a single line from the ingredients list
   def parse_single str, units_hash
 
     str = presub str
@@ -36,6 +36,7 @@ class TableCloth
     
   end
 
+  #extrac the quantity from the string
   def get_qty str
 
     #check for fractions first, then single units
@@ -48,6 +49,7 @@ class TableCloth
     end
   end
 
+  #extract the units from the string
   def get_units str, units_hash
     first_word = str.gsub(/\d+/, "").scan(/[a-zA-Z]+/).first
     if units_hash.keys.include? first_word
@@ -57,6 +59,7 @@ class TableCloth
     end
   end
 
+  #extract the item itself from the string
   def get_item str,has_units
     if has_units
       #assume the first word is the unit
@@ -67,8 +70,9 @@ class TableCloth
     end
   end
 
+  #processes any pre-substitutions to the string 
   def presub str
-    #TODO: gotta be a better way of doing things than this!
+    #TODO: there's gotta be a better way of doing things than this!
     str.gsub!(/of/, "") #deal with "1 cup of sugar"
     str.gsub!(/^(a )/, "1") #turn "a cup of sugar" into "1 cup of sugar"
     str.gsub!(/ a /,"") #deal with "1/2 a cup of sugar"

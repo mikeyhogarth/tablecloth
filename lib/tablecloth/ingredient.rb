@@ -1,7 +1,6 @@
 class Ingredient
   attr_accessor :qty, :unit, :item
 
-  #initialize with hash
   def initialize(params)
     @qty = params[:qty]
     @unit = params[:unit]
@@ -31,4 +30,15 @@ class Ingredient
   def is_free_text?
     @qty == :na && @unit == :na
   end
+
+  #This method formats an ingredient into a readable string
+  def to_s
+    #singular
+    return "#{@qty} #{@unit} of #{item}" if @qty == "1"
+    
+    #basic pluralization
+    "#{@qty} #{@unit}s of #{item}"
+  end
+  
+
 end

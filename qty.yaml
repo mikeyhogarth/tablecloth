@@ -1,10 +1,10 @@
 --- 
-lbs: :lb
-lb: :lb
+lbs: :lbs
+lb: :lbs
 kg: :kg
-g: :gram
-gram: :gram
-grams: :gram
+g: :grams
+gram: :grams
+grams: :grams
 tsp: :teaspoon
 teaspoon: :teaspoon
 tea spoon: :teaspoon
@@ -14,7 +14,7 @@ tablespoon: :tablespoon
 table spoon: :tablespoon
 pinch: :pinch
 a pinch: :pinch
-cup: :cup
-cups: :cup
-ounces: :ounce
-oz: :ounce
+cup: :cups
+cups: :cups
+ounces: :ounces
+oz: :ounces

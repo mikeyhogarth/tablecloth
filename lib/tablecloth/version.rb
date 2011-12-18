@@ -1,3 +1,3 @@
-module TableCloth
-  VERSION = "0.0.2"
+module TC
+  VERSION = "0.0.3"
 end

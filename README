@@ -29,6 +29,17 @@ The following will also be parsed;
 "a cup of sugar"
 "salt to taste"
 
+You can also parse each ingredient back into a readable English string;
+
+1.9.2 > tb = TableCloth.new("1 cups sugar")
+ => #<TableCloth:0x8b67508 @ingredients=[1 cup of sugar]> 
+1.9.2 > tb.ingredients.first.to_s
+ => "1 cup of sugar" 
+1.9.2 > tb = TableCloth.new("2 cup sugar")
+ => #<TableCloth:0x8b4b2b8 @ingredients=[2 cups of sugar]> 
+1.9.2 > tb.ingredients.first.to_s
+ => "2 cups of sugar" 
+
 Eventually you'll be able to do this;
 
 tc.to_html

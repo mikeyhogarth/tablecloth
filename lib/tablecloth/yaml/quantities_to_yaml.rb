@@ -1,12 +1,14 @@
+#This file just generates the qty.yaml file which will basically be used when normalizing strings into symbols
+
 require "yaml"
 
 quantities = {
-  "lbs" => :lbs,
-  "lb" => :lbs,
+  "lbs" => :lb,
+  "lb" => :lb,
   "kg" => :kg,
-  "g" => :grams,
-  "gram" => :grams,
-  "grams" => :grams,
+  "g" => :gram,
+  "gram" => :gram,
+  "grams" => :gram,
   "tsp" => :teaspoon,
   "teaspoon" => :teaspoon,
   "tea spoon" => :teaspoon,
@@ -16,10 +18,10 @@ quantities = {
   "table spoon" => :tablespoon,
   "pinch" => :pinch,
   "a pinch" => :pinch,
-  "cup" => :cups,
-  "cups" => :cups,
-  "ounces" => :ounces,
-  "oz" => :ounces
+  "cup" => :cup,
+  "cups" => :cup,
+  "ounces" => :ounce,
+  "oz" => :ounce
 }
 
 File.open("qty.yaml", "w") do |file|

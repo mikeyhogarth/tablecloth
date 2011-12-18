@@ -17,12 +17,12 @@ class TestExamples < Test::Unit::TestCase
 
   def test_qty_fractions
     tb = TableCloth.new("1/2 a cup of sugar")
-    test_ingredient = Ingredient.new :qty => "1/2", :unit => :cups, :item => "sugar"
+    test_ingredient = Ingredient.new :qty => "1/2", :unit => :cup, :item => "sugar"
     assert_equal tb.ingredients.first, test_ingredient
     assert test_ingredient.quantity.fraction?
 
     tb = TableCloth.new("1/4 oz sugar")
-    test_ingredient = Ingredient.new :qty => "1/4", :unit => :ounces, :item => "sugar"
+    test_ingredient = Ingredient.new :qty => "1/4", :unit => :ounce, :item => "sugar"
     assert_equal tb.ingredients.first, test_ingredient
   end
 
@@ -37,7 +37,7 @@ class TestExamples < Test::Unit::TestCase
     assert_equal tb.ingredients.first, test_ingredient
 
     tb = TableCloth.new("a cup of sugar")
-    test_ingredient = Ingredient.new :qty => "1", :unit => :cups, :item => "sugar"
+    test_ingredient = Ingredient.new :qty => "1", :unit => :cup, :item => "sugar"
     assert_equal tb.ingredients.first, test_ingredient
     assert !tb.ingredients.first.is_free_text?
 
@@ -47,7 +47,7 @@ class TestExamples < Test::Unit::TestCase
     assert_equal tb.ingredients.first, test_ingredient
 
     tb = TableCloth.new("cup of sugar")
-    test_ingredient = Ingredient.new :item => "sugar", :qty => 1, :unit => :cups
+    test_ingredient = Ingredient.new :item => "sugar", :qty => 1, :unit => :cup
     assert_equal tb.ingredients.first, test_ingredient
     
   end
