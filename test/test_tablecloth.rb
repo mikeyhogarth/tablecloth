@@ -40,5 +40,14 @@ class TestTablecloth < Test::Unit::TestCase
     assert_raise(TypeError) { tc << "My cat is awesome" }
     
   end
+
+  def test_iteration
+    tc = TableCloth.new("1 kg sugar \n 2kg carrots")
+    assert_equal 2, tc.ingredients.count
+
+    tc.ingredients.each do |ingredient|
+      assert ingredient.class == Ingredient
+    end    
+  end
   
 end

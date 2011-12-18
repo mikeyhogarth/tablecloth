@@ -22,7 +22,7 @@ class TableCloth
   #add ingredient straight into tablecloth instance
   def << ingredient
 
-    raise TypeError if ingredient.class != Ingredient
+    raise TypeError if (ingredient.class != Ingredient)
     
     @ingredients << ingredient
   end
