@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>lib/tablecloth.rb
+    <li>lib/tablecloth/base.rb
   </ul>
 </nav>
 
@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -99,7 +99,9 @@
   
     <li><a href="./Ingredient.html">Ingredient</a>
   
-    <li><a href="./Object.html">Object</a>
+    <li><a href="./TB.html">TB</a>
+  
+    <li><a href="./TC.html">TC</a>
   
     <li><a href="./TableCloth.html">TableCloth</a>
   
@@ -108,6 +110,8 @@
     <li><a href="./TestHtml.html">TestHtml</a>
   
     <li><a href="./TestTablecloth.html">TestTablecloth</a>
+  
+    <li><a href="./TestToString.html">TestToString</a>
   
   </ul>
 </nav>
@@ -120,6 +124,8 @@
 
   <div id="description" class="description">
     
+<p>Base class</p>
+
   </div><!-- description -->
 
   
@@ -176,10 +182,10 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/tablecloth.rb, line 8</span>
+            <pre><span class="ruby-comment"># File lib/tablecloth/base.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">val</span>
   
-  <span class="ruby-identifier">units_hash</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-string">&quot;lib/yaml/qty.yaml&quot;</span>)
+  <span class="ruby-identifier">units_hash</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-string">&quot;lib/tablecloth/yaml/qty.yaml&quot;</span>)
 
   <span class="ruby-ivar">@ingredients</span> = []
 
@@ -215,12 +221,13 @@
 
         <div class="method-description">
           
-          
+          <p>NOT YET IMPLEMENTED: will return entire ingredient list an html ul, can be
+overriden to include html attributes</p>
           
 
           
           <div class="method-source-code" id="to_html-source">
-            <pre><span class="ruby-comment"># File lib/tablecloth.rb, line 20</span>
+            <pre><span class="ruby-comment"># File lib/tablecloth/base.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_html</span>
   <span class="ruby-comment">#TODO</span>
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>

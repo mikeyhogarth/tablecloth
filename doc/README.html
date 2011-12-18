@@ -63,7 +63,9 @@
   
     <li><a href="./Ingredient.html">Ingredient</a>
   
-    <li><a href="./Object.html">Object</a>
+    <li><a href="./TB.html">TB</a>
+  
+    <li><a href="./TC.html">TC</a>
   
     <li><a href="./TableCloth.html">TableCloth</a>
   
@@ -72,6 +74,8 @@
     <li><a href="./TestHtml.html">TestHtml</a>
   
     <li><a href="./TestTablecloth.html">TestTablecloth</a>
+  
+    <li><a href="./TestToString.html">TestToString</a>
   
   </ul>
 </nav>
@@ -118,6 +122,30 @@ cup of sugar”)</p>
 <p>The following will also be parsed;</p>
 
 <p>"1 tablespoon of sugar" "1 bouquet garni" "a cup of sugar" "salt to taste"</p>
+
+<p>You can also parse each ingredient back into a readable English string;</p>
+
+<p>1.9.2 &gt; tb = <a
+href="TableCloth.html#method-c-new">TableCloth.new</a>(“1 cups sugar”)</p>
+
+<pre class="ruby">=<span class="ruby-operator">&gt;</span> <span class="ruby-comment">#&lt;TableCloth:0x8b67508 @ingredients=[1 cup of sugar]&gt;</span>
+</pre>
+
+<p>1.9.2 &gt; tb.ingredients.first.to_s</p>
+
+<pre class="ruby">=<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1 cup of sugar&quot;</span>
+</pre>
+
+<p>1.9.2 &gt; tb = <a
+href="TableCloth.html#method-c-new">TableCloth.new</a>(“2 cup sugar”)</p>
+
+<pre class="ruby">=<span class="ruby-operator">&gt;</span> <span class="ruby-comment">#&lt;TableCloth:0x8b4b2b8 @ingredients=[2 cups of sugar]&gt;</span>
+</pre>
+
+<p>1.9.2 &gt; tb.ingredients.first.to_s</p>
+
+<pre class="ruby">=<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;2 cups of sugar&quot;</span>
+</pre>
 
 <p>Eventually you’ll be able to do this;</p>
 

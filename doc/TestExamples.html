@@ -101,7 +101,9 @@
   
     <li><a href="./Ingredient.html">Ingredient</a>
   
-    <li><a href="./Object.html">Object</a>
+    <li><a href="./TB.html">TB</a>
+  
+    <li><a href="./TC.html">TC</a>
   
     <li><a href="./TableCloth.html">TableCloth</a>
   
@@ -110,6 +112,8 @@
     <li><a href="./TestHtml.html">TestHtml</a>
   
     <li><a href="./TestTablecloth.html">TestTablecloth</a>
+  
+    <li><a href="./TestToString.html">TestToString</a>
   
   </ul>
 </nav>
@@ -170,7 +174,7 @@
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
 
   <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;a cup of sugar&quot;</span>)
-  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cups</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
+  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cup</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
   <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_free_text?</span>
 
@@ -180,7 +184,7 @@
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
 
   <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;cup of sugar&quot;</span>)
-  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>, <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cups</span>
+  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>, <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cup</span>
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
   
 <span class="ruby-keyword">end</span></pre>
@@ -251,12 +255,12 @@
             <pre><span class="ruby-comment"># File test/test_examples.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_qty_fractions</span>
   <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;1/2 a cup of sugar&quot;</span>)
-  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1/2&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cups</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
+  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1/2&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:cup</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
   <span class="ruby-identifier">assert</span> <span class="ruby-identifier">test_ingredient</span>.<span class="ruby-identifier">quantity</span>.<span class="ruby-identifier">fraction?</span>
 
   <span class="ruby-identifier">tb</span> = <span class="ruby-constant">TableCloth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;1/4 oz sugar&quot;</span>)
-  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1/4&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ounces</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
+  <span class="ruby-identifier">test_ingredient</span> = <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1/4&quot;</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ounce</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
   <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">tb</span>.<span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">test_ingredient</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- test_qty_fractions-source -->

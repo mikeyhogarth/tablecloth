@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>lib/ingredient.rb
+    <li>lib/tablecloth/ingredient.rb
   </ul>
 </nav>
 
@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -77,6 +77,8 @@
     <li><a href="#method-i-is_free_text-3F">#is_free_text?</a>
     
     <li><a href="#method-i-quantity">#quantity</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
     
     <li><a href="#method-i-units">#units</a>
     
@@ -105,7 +107,9 @@
   
     <li><a href="./Ingredient.html">Ingredient</a>
   
-    <li><a href="./Object.html">Object</a>
+    <li><a href="./TB.html">TB</a>
+  
+    <li><a href="./TC.html">TC</a>
   
     <li><a href="./TableCloth.html">TableCloth</a>
   
@@ -114,6 +118,8 @@
     <li><a href="./TestHtml.html">TestHtml</a>
   
     <li><a href="./TestTablecloth.html">TestTablecloth</a>
+  
+    <li><a href="./TestToString.html">TestToString</a>
   
   </ul>
 </nav>
@@ -203,12 +209,12 @@
 
         <div class="method-description">
           
-          <p>initialize with hash</p>
+          
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 7</span>
+            <pre><span class="ruby-comment"># File lib/tablecloth/ingredient.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-ivar">@qty</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:qty</span>]
   <span class="ruby-ivar">@unit</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:unit</span>]
@@ -248,7 +254,7 @@
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/tablecloth/ingredient.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other_ingredient</span>)
     <span class="ruby-ivar">@qty</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other_ingredient</span>.<span class="ruby-identifier">qty</span> <span class="ruby-operator">&amp;&amp;</span>
     <span class="ruby-ivar">@unit</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other_ingredient</span>.<span class="ruby-identifier">unit</span> <span class="ruby-operator">&amp;&amp;</span>
@@ -280,7 +286,7 @@
 
           
           <div class="method-source-code" id="is_free_text-3F-source">
-            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 33</span>
+            <pre><span class="ruby-comment"># File lib/tablecloth/ingredient.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">is_free_text?</span>
   <span class="ruby-ivar">@qty</span> <span class="ruby-operator">==</span> <span class="ruby-value">:na</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@unit</span> <span class="ruby-operator">==</span> <span class="ruby-value">:na</span>
 <span class="ruby-keyword">end</span></pre>
@@ -310,7 +316,7 @@
 
           
           <div class="method-source-code" id="quantity-source">
-            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 16</span>
+            <pre><span class="ruby-comment"># File lib/tablecloth/ingredient.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">quantity</span>
   <span class="ruby-ivar">@qty</span>
 <span class="ruby-keyword">end</span></pre>
@@ -322,6 +328,40 @@
 
         
       </div><!-- quantity-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method formats an ingredient into a readable string</p>
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/tablecloth/ingredient.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-comment">#singular</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;#{@qty} #{@unit} of #{item}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@qty</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1&quot;</span>
+  
+  <span class="ruby-comment">#basic pluralization</span>
+  <span class="ruby-node">&quot;#{@qty} #{@unit}s of #{item}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
 
     
       <div id="method-i-units" class="method-detail ">
@@ -340,7 +380,7 @@
 
           
           <div class="method-source-code" id="units-source">
-            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 21</span>
+            <pre><span class="ruby-comment"># File lib/tablecloth/ingredient.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">units</span>
   <span class="ruby-ivar">@unit</span>
 <span class="ruby-keyword">end</span></pre>
