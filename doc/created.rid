@@ -1,9 +1,10 @@
-Sun, 18 Dec 2011 15:32:30 +0000
-./lib/tablecloth.rb	Sun, 18 Dec 2011 15:27:38 +0000
+Sun, 18 Dec 2011 16:03:34 +0000
+./lib/tablecloth.rb	Sun, 18 Dec 2011 15:47:38 +0000
 ./lib/yaml/quantities_to_yaml.rb	Sun, 18 Dec 2011 15:21:43 +0000
 ./lib/core_ext.rb	Sun, 18 Dec 2011 15:16:09 +0000
-./lib/ingredient.rb	Sun, 18 Dec 2011 15:27:05 +0000
+./lib/ingredient.rb	Sun, 18 Dec 2011 15:52:35 +0000
 ./test/test_tablecloth.rb	Sat, 17 Dec 2011 14:01:39 +0000
 ./test/test_examples.rb	Sun, 18 Dec 2011 15:31:27 +0000
+./test/test_html.rb	Sun, 18 Dec 2011 15:38:50 +0000
 ./README~	Sat, 17 Dec 2011 18:12:17 +0000
-./README	Sat, 17 Dec 2011 18:30:49 +0000
+./README	Sun, 18 Dec 2011 15:52:01 +0000

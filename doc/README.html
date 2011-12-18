@@ -69,6 +69,8 @@
   
     <li><a href="./TestExamples.html">TestExamples</a>
   
+    <li><a href="./TestHtml.html">TestHtml</a>
+  
     <li><a href="./TestTablecloth.html">TestTablecloth</a>
   
   </ul>
@@ -86,11 +88,28 @@ href="Ingredient.html">Ingredient</a> objects.</p>
 
 <h6 id="label-"></h6>
 
-<p>the following syntax will create a tc object with your tc markup in
-“Ingredient” form;</p>
+<p>Example usage;</p>
 
-<p>tc = <a href="TableCloth.html#method-c-new">TableCloth.new</a> “1 cup of
-sugar”</p>
+<p>1.9.2&gt; tc = <a href="TableCloth.html#method-c-new">TableCloth.new</a>(“1
+cup of sugar”)</p>
+
+<pre class="ruby">=<span class="ruby-operator">&gt;</span> <span class="ruby-comment">#&lt;TableCloth:0x87a09c4 @ingredients=[#&lt;Ingredient:0x879d454 @qty=&quot;1&quot;, @unit=:cups, @item=&quot;sugar&quot;&gt;]&gt;</span>
+</pre>
+
+<p>1.9.2 &gt; tc.ingredients.first.quantity</p>
+
+<pre class="ruby">=<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;1&quot;</span>
+</pre>
+
+<p>1.9.2 &gt; tc.ingredients.first.unit</p>
+
+<pre class="ruby">=<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">cups</span>
+</pre>
+
+<p>1.9.2 &gt; tc.ingredients.first.item</p>
+
+<pre class="ruby">=<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sugar&quot;</span>
+</pre>
 
 <p>All of the following will parse to an equivalent object;</p>
 
@@ -103,6 +122,8 @@ sugar”</p>
 <p>Eventually you’ll be able to do this;</p>
 
 <p>tc.to_html</p>
+
+<h1 id="label-%3E+%3Cul%3E%3Cli%3E2+lbs+Potatoes%3C%2Fli%3E%3C%2Ful%3E">&gt; &lt;ul&gt;&lt;li&gt;2 lbs Potatoes&lt;/li&gt;&lt;/ul&gt;</h1>
 
 </div>
 

@@ -72,15 +72,7 @@
     
     <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-get_item">#get_item</a>
-    
-    <li><a href="#method-i-get_qty">#get_qty</a>
-    
-    <li><a href="#method-i-get_units">#get_units</a>
-    
-    <li><a href="#method-i-parse_single">#parse_single</a>
-    
-    <li><a href="#method-i-presub">#presub</a>
+    <li><a href="#method-i-to_html">#to_html</a>
     
   </ul>
 </nav>
@@ -112,6 +104,8 @@
     <li><a href="./TableCloth.html">TableCloth</a>
   
     <li><a href="./TestExamples.html">TestExamples</a>
+  
+    <li><a href="./TestHtml.html">TestHtml</a>
   
     <li><a href="./TestTablecloth.html">TestTablecloth</a>
   
@@ -210,11 +204,11 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-get_item" class="method-detail ">
+      <div id="method-i-to_html" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">get_item</span><span
-            class="method-args">(str,has_units)</span>
+          <span class="method-name">to_html</span><span
+            class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -225,170 +219,20 @@
           
 
           
-          <div class="method-source-code" id="get_item-source">
-            <pre><span class="ruby-comment"># File lib/tablecloth.rb, line 53</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_item</span> <span class="ruby-identifier">str</span>,<span class="ruby-identifier">has_units</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">has_units</span>
-    <span class="ruby-comment">#assume the first word is the unit</span>
-    <span class="ruby-identifier">str</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/[a-zA-Z]+/</span>).<span class="ruby-identifier">drop</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-comment">#assume all non-numerical words are the item</span>
-    <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\d+/</span>,<span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/\w+/</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_item-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_item-method -->
-
-    
-      <div id="method-i-get_qty" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_qty</span><span
-            class="method-args">(str)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="get_qty-source">
-            <pre><span class="ruby-comment"># File lib/tablecloth.rb, line 32</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_qty</span> <span class="ruby-identifier">str</span>
-
-  <span class="ruby-comment">#check for fractions first, then single units</span>
-  <span class="ruby-identifier">qty</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-regexp">/\d+\/\d+/</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-regexp">/\d+/</span>)
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">qty</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
-    <span class="ruby-value">:na</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">qty</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_qty-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_qty-method -->
-
-    
-      <div id="method-i-get_units" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">get_units</span><span
-            class="method-args">(str, units_hash)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="get_units-source">
-            <pre><span class="ruby-comment"># File lib/tablecloth.rb, line 44</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_units</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">units_hash</span>
-  <span class="ruby-identifier">first_word</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\d+/</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/[a-zA-Z]+/</span>).<span class="ruby-identifier">first</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">units_hash</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">first_word</span>
-    <span class="ruby-identifier">units_hash</span>[<span class="ruby-identifier">first_word</span>]
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-value">:na</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- get_units-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- get_units-method -->
-
-    
-      <div id="method-i-parse_single" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">parse_single</span><span
-            class="method-args">(str, units_hash)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="parse_single-source">
+          <div class="method-source-code" id="to_html-source">
             <pre><span class="ruby-comment"># File lib/tablecloth.rb, line 20</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_single</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">units_hash</span>
-
-  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">presub</span> <span class="ruby-identifier">str</span>
-  
-  <span class="ruby-identifier">qty</span> = <span class="ruby-identifier">get_qty</span> <span class="ruby-identifier">str</span>
-  <span class="ruby-identifier">units</span> = <span class="ruby-identifier">get_units</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">units_hash</span>
-  <span class="ruby-identifier">item</span> = <span class="ruby-identifier">get_item</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">units</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:na</span>
-
-  <span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:qty</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">qty</span>, <span class="ruby-value">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">units</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">item</span>   
-  
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_html</span>
+  <span class="ruby-comment">#TODO</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- parse_single-source -->
+          </div><!-- to_html-source -->
           
         </div>
 
         
 
         
-      </div><!-- parse_single-method -->
-
-    
-      <div id="method-i-presub" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">presub</span><span
-            class="method-args">(str)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="presub-source">
-            <pre><span class="ruby-comment"># File lib/tablecloth.rb, line 63</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">presub</span> <span class="ruby-identifier">str</span>
-  <span class="ruby-comment">#TODO: gotta be a better way of doing things than this!</span>
-  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/of/</span>, <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-comment">#deal with &quot;1 cup of sugar&quot;</span>
-  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/^(a )/</span>, <span class="ruby-string">&quot;1&quot;</span>) <span class="ruby-comment">#turn &quot;a cup of sugar&quot; into &quot;1 cup of sugar&quot;</span>
-  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/ a /</span>,<span class="ruby-string">&quot;&quot;</span>) <span class="ruby-comment">#deal with &quot;1/2 a cup of sugar&quot;</span>
-  <span class="ruby-identifier">str</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- presub-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- presub-method -->
+      </div><!-- to_html-method -->
 
     
     </section><!-- public-instance-method-details -->

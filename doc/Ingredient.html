@@ -78,6 +78,8 @@
     
     <li><a href="#method-i-quantity">#quantity</a>
     
+    <li><a href="#method-i-units">#units</a>
+    
   </ul>
 </nav>
 
@@ -108,6 +110,8 @@
     <li><a href="./TableCloth.html">TableCloth</a>
   
     <li><a href="./TestExamples.html">TestExamples</a>
+  
+    <li><a href="./TestHtml.html">TestHtml</a>
   
     <li><a href="./TestTablecloth.html">TestTablecloth</a>
   
@@ -244,7 +248,7 @@
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 21</span>
+            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other_ingredient</span>)
     <span class="ruby-ivar">@qty</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other_ingredient</span>.<span class="ruby-identifier">qty</span> <span class="ruby-operator">&amp;&amp;</span>
     <span class="ruby-ivar">@unit</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other_ingredient</span>.<span class="ruby-identifier">unit</span> <span class="ruby-operator">&amp;&amp;</span>
@@ -276,7 +280,7 @@
 
           
           <div class="method-source-code" id="is_free_text-3F-source">
-            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 28</span>
+            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">is_free_text?</span>
   <span class="ruby-ivar">@qty</span> <span class="ruby-operator">==</span> <span class="ruby-value">:na</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@unit</span> <span class="ruby-operator">==</span> <span class="ruby-value">:na</span>
 <span class="ruby-keyword">end</span></pre>
@@ -301,7 +305,7 @@
 
         <div class="method-description">
           
-          <p>alias for @qty</p>
+          <p>alias for qty</p>
           
 
           
@@ -318,6 +322,36 @@
 
         
       </div><!-- quantity-method -->
+
+    
+      <div id="method-i-units" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">units</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>alias for unit</p>
+          
+
+          
+          <div class="method-source-code" id="units-source">
+            <pre><span class="ruby-comment"># File lib/ingredient.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">units</span>
+  <span class="ruby-ivar">@unit</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- units-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- units-method -->
 
     
     </section><!-- public-instance-method-details -->
