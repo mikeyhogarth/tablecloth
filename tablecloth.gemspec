@@ -1,11 +1,13 @@
-require "rubygems"
+$:.push File.expand_path("../lib", __FILE__)
+require "mygem/version"
 
 spec = Gem::Specification.new do |s|
 
      s.name = "tablecloth"
-     s.version = "0.0.1"
+     s.version = TableCloth::VERSION
+     s.platform    = Gem::Platform::RUBY
      s.summary = "A text parser to turn plain text into ingredient objects"
-     s.files = Dir.glob("**/**/**")
+     s.files = Dir.glob("**/**/**/**")
      s.test_files = Dir.glob("test/*_test.rb")
      s.authors = "Mikey Hogarth"
      s.email = "mikehogarth20@hotmail.com"
