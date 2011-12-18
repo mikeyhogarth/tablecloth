@@ -1,3 +1,5 @@
+#This file contains tests for specific examples
+
 require "test/unit"
 require "tablecloth"
   

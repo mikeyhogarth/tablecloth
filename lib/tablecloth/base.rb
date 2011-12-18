@@ -3,16 +3,28 @@ class TableCloth
   
   attr_reader :ingredients
 
-  def initialize val
+  def initialize *args
     
     units_hash = YAML.load_file("lib/tablecloth/yaml/qty.yaml")
 
     @ingredients = []
 
-    val.each_line do |line|
+    return if args.size == 0
+
+    raise ArgumentError if args.size > 1
+    
+    args.first.each_line do |line|
       @ingredients << parse_single(line, units_hash)
     end    
     
+  end
+
+  #add ingredient straight into tablecloth instance
+  def << ingredient
+
+    raise TypeError if ingredient.class != Ingredient
+    
+    @ingredients << ingredient
   end
 
   #NOT YET IMPLEMENTED: will return entire ingredient list an html ul, can be overriden to include html attributes

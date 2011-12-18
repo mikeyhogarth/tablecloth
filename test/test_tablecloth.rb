@@ -1,3 +1,5 @@
+#This file contains very generic functionality tests
+
 require "test/unit"
 require "tablecloth"
 
@@ -26,4 +28,17 @@ class TestTablecloth < Test::Unit::TestCase
     #should be two
     assert_equal tc.ingredients.count, 2
   end  
+
+  def test_add_ingredient
+    ingredient = Ingredient.new :qty => "1", :item => "sugar", :unit => :kg
+    assert_equal ingredient.class, Ingredient
+
+    tc = TableCloth.new
+    tc << ingredient
+    assert_equal tc.ingredients.first, ingredient
+
+    assert_raise(TypeError) { tc << "My cat is awesome" }
+    
+  end
+  
 end
