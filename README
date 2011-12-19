@@ -40,7 +40,7 @@ You can also parse each ingredient back into a readable English string;
 1.9.2 > tb.ingredients.first.to_s
  => "2 cups of sugar" 
 
-Eventually you'll be able to do this;
+You can also generate html from the various parts of the object
 
-tc.to_html
+tc.ingredients_to_html
 => <ul><li>2 lbs Potatoes</li></ul>

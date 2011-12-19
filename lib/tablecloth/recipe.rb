@@ -31,9 +31,24 @@ module TableCloth
     end
     
     #NOT YET IMPLEMENTED: will return entire ingredient list an html ul, can be overriden to include html attributes
-    def to_html
-      #TODO
-      raise NotImplementedError
+    def ingredients_to_html *args
+      return "" if @ingredients.empty?
+
+      if(!args.empty?)
+        raise ArgumentError if args.size > 1
+
+        html_class = " class = '#{args.first[:class]}'" if args.first[:class]
+        html_id = " id = '#{args.first[:id]}'" if args.first[:id]
+
+      end
+      
+      html = "<ul#{html_id}#{html_class}>"
+      
+      @ingredients.each do |ingredient|
+        html << "<li>#{ingredient.to_s}</li>"
+      end      
+      
+      html << "</ul>"
     end
     
     private
