@@ -1,12 +1,12 @@
-This is an ingredients markdown for converting pure text to arrays of Ingredient objects. 
+This is an ingredients markdown for converting pure text into recipe objects for use on cooking websites. 
 
 EXAMPLES
 ==========
 
 Example usage;
 
-1.9.2> tc = TableCloth.new("1 cup of sugar")
- => #<TableCloth:0x87a09c4 @ingredients=[#<Ingredient:0x879d454 @qty="1", @unit=:cups, @item="sugar">]> 
+1.9.2> tc = TableCloth::Recipe.new(:ingredients => "1 cup of sugar")
+ => #<TableCloth:0x87a09c4 @ingredients=[1 cup of sugar]>]> 
 
 1.9.2 > tc.ingredients.first.quantity
  => "1" 
@@ -15,7 +15,7 @@ Example usage;
 1.9.2 > tc.ingredients.first.item
  => "sugar" 
 
-All of the following will parse to an equivalent object;
+All of the following forms of ingredient text will also parse;
 
 "2lbs Potatoes"
 "2 lbs Potatoes"
@@ -31,7 +31,7 @@ The following will also be parsed;
 
 You can also parse each ingredient back into a readable English string;
 
-1.9.2 > tb = TableCloth.new("1 cups sugar")
+1.9.2 > tb = TableCloth::Recipe.new(:ingredients => "1 cups sugar")
  => #<TableCloth:0x8b67508 @ingredients=[1 cup of sugar]> 
 1.9.2 > tb.ingredients.first.to_s
  => "1 cup of sugar" 

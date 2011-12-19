@@ -4,40 +4,42 @@ module TableCloth
     
     attr_reader :ingredients
     
-    def initialize *args
+    def initialize *args    
       
-      units_hash = YAML.load_file("lib/tablecloth/yaml/qty.yaml")
-      
+      @method = []
       @ingredients = []
       
+      #nothing left to do if no args passed in
       return if args.size == 0
       
-      raise ArgumentError if args.size > 1
-      
-      args.first.each_line do |line|
-        @ingredients << parse_single(line, units_hash)
-      end    
+      #couple of syntax checks
+      params = args.first
+      raise ArgumentError if params.empty?      
+      raise ArgumentError if params.class != Hash     
+
+      parse_ingredients params[:ingredients] 
       
     end
     
-    #add ingredient straight into tablecloth instance
-    def << ingredient
+    #add ingredients straight into tablecloth instance
+    def parse_ingredients ingredients
+      units_hash = YAML.load_file("lib/tablecloth/yaml/qty.yaml")
       
-      raise TypeError if (ingredient.class != Ingredient)
-      
-      @ingredients << ingredient
+      ingredients.each_line do |line|
+        @ingredients << parse_single_ingredient(line, units_hash)
+      end    
     end
     
     #NOT YET IMPLEMENTED: will return entire ingredient list an html ul, can be overriden to include html attributes
     def to_html
       #TODO
-    raise NotImplementedError
+      raise NotImplementedError
     end
     
     private
     
     #parse a single line from the ingredients list
-    def parse_single str, units_hash
+    def parse_single_ingredient str, units_hash
       
       str = presub str
       
