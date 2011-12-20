@@ -24,9 +24,11 @@ class TestTablecloth < Test::Unit::TestCase
   def test_multi_line_recipe
     str = "1 tablespoon salt \n 1/2 cup sugar"
     tc = TableCloth::Recipe.new :ingredients => str
-
-    #should be two
     assert_equal tc.ingredients.count, 2
+
+    #str = "1 tablespoon salt, 1/2 cup sugar"
+    #tc = TableCloth::Recipe.new :ingredients => str
+    #assert_equal tc.ingredients.count, 2
   end  
 
   def test_add_ingredient

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class TableCloth::Recipe - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/tablecloth/recipe.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-parse_ingredients">#parse_ingredients</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README.html">README</a>
+  
+    <li class="file"><a href="../README~.html">README~</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../TableCloth.html">TableCloth</a>
+  
+    <li><a href="../TableCloth/Ingredient.html">TableCloth::Ingredient</a>
+  
+    <li><a href="../TableCloth/Ingredients.html">TableCloth::Ingredients</a>
+  
+    <li><a href="../TableCloth/Recipe.html">TableCloth::Recipe</a>
+  
+    <li><a href="../TB.html">TB</a>
+  
+    <li><a href="../TC.html">TC</a>
+  
+    <li><a href="../TestExamples.html">TestExamples</a>
+  
+    <li><a href="../TestHtml.html">TestHtml</a>
+  
+    <li><a href="../TestTablecloth.html">TestTablecloth</a>
+  
+    <li><a href="../TestToString.html">TestToString</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class TableCloth::Recipe</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-ingredients" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ingredients</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-method" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">method</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/tablecloth/recipe.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> *<span class="ruby-identifier">args</span>    
+  
+  <span class="ruby-ivar">@method</span> = []
+  <span class="ruby-ivar">@ingredients</span> = <span class="ruby-constant">Ingredients</span>.<span class="ruby-identifier">new</span>
+  
+  <span class="ruby-comment">#nothing left to do if no args passed in</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  
+  <span class="ruby-comment">#couple of syntax checks</span>
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Hash</span>     
+
+  <span class="ruby-identifier">parse_ingredients</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ingredients</span>] 
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-parse_ingredients" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_ingredients</span><span
+            class="method-args">(ingredients)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>add ingredients straight into tablecloth instance</p>
+          
+
+          
+          <div class="method-source-code" id="parse_ingredients-source">
+            <pre><span class="ruby-comment"># File lib/tablecloth/recipe.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_ingredients</span> <span class="ruby-identifier">ingredients</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-comment">#units_hash = YAML.load_file(&quot;lib/tablecloth/yaml/qty.yaml&quot;)</span>
+  <span class="ruby-identifier">units_hash</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>),<span class="ruby-string">&quot;yaml/qty.yaml&quot;</span>))
+  <span class="ruby-identifier">ingredients</span>.<span class="ruby-identifier">each_line</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@ingredients</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">TableCloth</span><span class="ruby-operator">::</span><span class="ruby-constant">Ingredient</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">line</span>, <span class="ruby-identifier">units_hash</span>)       
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_ingredients-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_ingredients-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

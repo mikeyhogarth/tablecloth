@@ -24,11 +24,11 @@ module TableCloth
     def parse_ingredients ingredients
       return if ingredients.nil?
 
-      units_hash = YAML.load_file("lib/tablecloth/yaml/qty.yaml")
-      
+      #units_hash = YAML.load_file("lib/tablecloth/yaml/qty.yaml")
+      units_hash = YAML.load_file(File.join(File.dirname(__FILE__),"yaml/qty.yaml"))
       ingredients.each_line do |line|
-        @ingredients << TableCloth::Ingredient.parse(line, units_hash)
-      end    
+        @ingredients << TableCloth::Ingredient.parse(line, units_hash)       
+      end
     end    
   end
 end

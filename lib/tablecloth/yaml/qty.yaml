@@ -1,13 +1,18 @@
 --- 
 lbs: :lb
 lb: :lb
+pounds: :lb
+pound: :lb
 kilogram: :kg
 kilograms: :kg
 kilo: :kg
+kilos: :kg
+kgs: :kg
 kg: :kg
 g: :gram
 gram: :gram
 grams: :gram
+ts: :teaspoon
 tsp: :teaspoon
 teaspoon: :teaspoon
 tea spoon: :teaspoon
@@ -20,4 +25,6 @@ a pinch: :pinch
 cup: :cup
 cups: :cup
 ounces: :ounce
+ounce: :ounce
 oz: :ounce
+ozs: :ounces
