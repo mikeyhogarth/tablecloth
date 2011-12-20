@@ -5,14 +5,13 @@ EXAMPLES
 
 Example usage;
 
-1.9.2> tc = TableCloth::Recipe.new(:ingredients => "1 cup of sugar")
- => #<TableCloth:0x87a09c4 @ingredients=[1 cup of sugar]>]> 
+tc = TableCloth::Recipe.new(:ingredients => "3 cups of sugar")
 
-1.9.2 > tc.ingredients.first.quantity
- => "1" 
-1.9.2 > tc.ingredients.first.unit
- => :cups 
-1.9.2 > tc.ingredients.first.item
+tc.ingredients.first.quantity
+ => "3" 
+tc.ingredients.first.unit
+ => :cup 
+tc.ingredients.first.item
  => "sugar" 
 
 All of the following forms of ingredient text will also parse;
@@ -21,9 +20,6 @@ All of the following forms of ingredient text will also parse;
 "2 lbs Potatoes"
 "2 lb Potatoes"
 "2lb Potatoes"
-
-The following will also be parsed;
-
 "1 tablespoon of sugar"
 "1 bouquet garni"
 "a cup of sugar"
@@ -31,16 +27,15 @@ The following will also be parsed;
 
 You can also parse each ingredient back into a readable English string;
 
-1.9.2 > tb = TableCloth::Recipe.new(:ingredients => "1 cups sugar")
- => #<TableCloth:0x8b67508 @ingredients=[1 cup of sugar]> 
-1.9.2 > tb.ingredients.first.to_s
+tb = TableCloth::Recipe.new(:ingredients => "1 cups sugar")
+tb.ingredients.first.to_s
  => "1 cup of sugar" 
-1.9.2 > tb = TableCloth.new("2 cup sugar")
- => #<TableCloth:0x8b4b2b8 @ingredients=[2 cups of sugar]> 
-1.9.2 > tb.ingredients.first.to_s
+
+tb = TableCloth.new("2 cup sugar")
+tb.ingredients.first.to_s
  => "2 cups of sugar" 
 
-You can also generate html from the various parts of the object
+You can also generate html from the various parts of the object;
 
-tc.ingredients_to_html
+tc.ingredients.to_html
 => <ul><li>2 lbs Potatoes</li></ul>

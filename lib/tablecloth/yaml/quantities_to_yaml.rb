@@ -5,6 +5,9 @@ require "yaml"
 quantities = {
   "lbs" => :lb,
   "lb" => :lb,
+  "kilogram" => :kg,
+  "kilograms" => :kg,
+  "kilo" => :kg,
   "kg" => :kg,
   "g" => :gram,
   "gram" => :gram,

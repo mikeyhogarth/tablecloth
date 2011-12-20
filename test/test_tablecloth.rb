@@ -10,7 +10,7 @@ class TestTablecloth < Test::Unit::TestCase
     tc = TableCloth::Recipe.new :ingredients => str
     
     #shoudl return an array
-    assert_equal Array, tc.ingredients.class
+    assert_equal TableCloth::Ingredients, tc.ingredients.class
   end
 
   def test_one_line_recipe

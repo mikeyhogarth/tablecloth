@@ -7,21 +7,21 @@ class TestHtml < Test::Unit::TestCase
     
     tb = TableCloth::Recipe.new
 
-    assert_equal "", tb.ingredients_to_html
+    assert_equal "", tb.ingredients.to_html
     
     tb.parse_ingredients "1 cup of sugar"
     
-    html = tb.ingredients_to_html
+    html = tb.ingredients.to_html
     assert_equal(html, "<ul><li>1 cup of sugar</li></ul>")
 
-    html = tb.ingredients_to_html :class => "mikey"
+    html = tb.ingredients.to_html :class => "mikey"
     assert_equal(html, "<ul class = 'mikey'><li>1 cup of sugar</li></ul>")
 
-    html = tb.ingredients_to_html :id => "mikey"
+    html = tb.ingredients.to_html :id => "mikey"
     assert_equal(html, "<ul id = 'mikey'><li>1 cup of sugar</li></ul>")
 
 
-    html = tb.ingredients_to_html :id => "mikey", :class => "hogarth"
+    html = tb.ingredients.to_html :id => "mikey", :class => "hogarth"
     assert_equal(html, "<ul id = 'mikey' class = 'hogarth'><li>1 cup of sugar</li></ul>")
 
 
